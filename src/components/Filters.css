@@ -1,0 +1,98 @@
+.filters {
+    display: flex;
+    justify-content: center; /* Distribuye los filtros de precio a la izquierda y el filtro de categoría a la derecha */
+    align-items: center; /* Alinea todos los filtros verticalmente al centro */
+    padding: 1rem;
+    width: 84%;
+    
+
+    
+    
+  }
+  
+  .price-filters {
+    display: flex; /* Los filtros de precio estarán en la misma fila */
+    gap: 2rem; /* Espaciado entre los filtros de precio */
+  }
+  
+  .price-filters div {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Alinea las barras de rango a la izquierda */
+    gap: -1rem; /* Espacio entre la etiqueta, barra y valor */
+  }
+  
+  input[type="range"] {
+    width: 150px; /* Ancho fijo para las barras de rango */
+  }
+  
+  .category-filter {
+    display: flex;
+    position: relative;
+    top: -0.5rem;
+    flex-direction: column;
+    align-items: center;
+    margin-left: auto;
+
+    
+  }
+  
+  label {
+    font-size: 14px;
+    font-weight: bold;
+    padding: 1rem;
+  }
+  
+  span {
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 0.2rem;
+  }
+  
+  select {
+    padding: 0.5rem;
+    font-size: 12px;
+    background-color: #000;
+    border-radius: 0.25em;
+    color: #fff;
+    border: 1px solid #fff;
+  }
+  
+  
+  select:hover {
+    background-color:#222;
+  }
+  
+  select::before {
+    /* ... */
+    border-bottom: var(--size) solid var(--dropdown-icon-color)
+  }
+  
+  select::after {
+    /* ... */
+    border-top: var(--size) solid var(--dropdown-icon-color);
+  }
+  
+  
+
+
+
+
+
+
+
+
+/*
+.filters {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.filters > div {
+    display: flex;
+    gap: 1rem;
+}
+    */
