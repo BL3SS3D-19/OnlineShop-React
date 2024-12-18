@@ -11,12 +11,18 @@ export const ProductProvider = ({children, initialProducts}) => {
 // useEffect para mostrar productos filtrados al cargar
 
 useEffect(() => {
+    console.log("Initial Products:", initialProducts);
     handleSelectedCategory(selectedCategory, initialProducts);
-}, [initialProducts, selectedCategory]);
-
+}, [initialProducts, selectedCategory])
+    
+    
+    
+   
 const handleSelectedCategory = (categorySlug, productsData)=>{
+    console.log(productsData)
     if(categorySlug === "all"){
         setFilteredProducts(productsData);
+        console.log(productsData);
     }else {
         setFilteredProducts(
             productsData.filter((product) => product.category === categorySlug)

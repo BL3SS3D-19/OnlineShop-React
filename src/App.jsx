@@ -1,34 +1,34 @@
-import { Products } from "./components/Products.jsx"
-import {products as initialProducts} from "./mocks/productsv2.json"
-import { useState } from "react"
 import {Header} from './components/Header.jsx'
+import { products as initialProducts } from './mocks/productsv2.json';
 import { Footer } from "./components/Footer.jsx"
-import { Cart } from "./components/Cart.jsx"
 import { CartProvider } from "./context/cart.jsx"
 import {ProductProvider} from "./context/productContext.jsx"
-import { Banner } from "./components/Banner.jsx"
- //import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import { CardsContainer} from "./components/Cards.jsx"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {Home} from "./components/Home.jsx"
+import {ProductsView} from "./components/ProductsView.jsx"
 
 
 
 
-function App() {
+
+
+function App() { 
+  console.log(initialProducts)
+ 
   
-  const [products] = useState(initialProducts)
 
-  
-  
   return (
-    <ProductProvider initialProducts={products} >
-    <CartProvider>
-      <Header />
-      <Banner/>
-      <Cart/>
-      <Products />
-      <CardsContainer />
-      <Footer />
-    </CartProvider>
+    <ProductProvider initialProducts={initialProducts}>
+      <CartProvider>
+        <Router>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Home/>} />
+            <Route path="/products" element={<ProductsView/>} />
+          </Routes>
+          <Footer />
+        </Router>
+      </CartProvider>
     </ProductProvider>
   )
 }

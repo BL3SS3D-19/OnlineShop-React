@@ -1,19 +1,12 @@
 import './Products.css';
-import { AddToCartIcon} from './Icons.jsx'
-import { useCart } from '../hooks/useCart.js';
 import { useProduct} from '../hooks/useProduct.js'
 
-export const Products =  () =>  {
-    const {addToCart} = useCart();
+export const Products = () =>  {
+    
     const {filteredProducts} = useProduct();
+    console.log(filteredProducts)
 
-    // Lista de IDs de productos que deseas mostrar
-    const productIdsToShow = [1, 12, 6, 10, 4, 27];
 
-    // Filtrar los productos para mostrar solo los que tienen los IDs especificados
-    const productsToDisplay = filteredProducts.filter(product => 
-        productIdsToShow.includes(product.id)
-    );
 
     return (
     
@@ -24,7 +17,7 @@ export const Products =  () =>  {
         </div>
         
         <ul>
-            {productsToDisplay.map(product => (
+            {filteredProducts.map(product => (
                 <li key={product.id}>
                     <img 
                         src ={product.thumbnail}
@@ -34,11 +27,7 @@ export const Products =  () =>  {
                         <strong>{product.title}</strong> - ${product.price}
                     </div>
                     <div>
-                        <button onClick={() => 
-                            addToCart(product)}
-                        >
-                            <AddToCartIcon/>
-                        </button>
+                       
                     </div>
                 </li>
             ))}
